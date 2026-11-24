@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volleyball Rotation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Volleyball Rotation</h1>
+  <nav>
+    <button class="tab" data-view="lineup">Lineup</button>
+    <button class="tab" data-view="rotations">Rotations</button>
+    <button class="tab" data-view="match">Match</button>
+  </nav>
+</header>
+
+<main>
+
+  <section id="view-lineup" class="view">
+    <p class="hint">Tap one player, then tap another to swap them.</p>
+    <div id="lineup-court" class="court big"></div>
+    <p class="note">Top row is the front court (zones 4 &middot; 3 &middot; 2). Bottom row is the back court (zones 5 &middot; 6 &middot; 1).</p>
+  </section>
+
+  <section id="view-rotations" class="view">
+    <div class="phase">
+      <button class="phasebtn" data-phase="serve">Serving</button>
+      <button class="phasebtn" data-phase="receive">Receiving</button>
+    </div>
+    <div id="rotation-grid" class="grid"></div>
+    <p class="note">All six rotations are drawn from the same lineup by calling occupancy(lineup, r) with r from 0 to 5.</p>
+  </section>
+
+  <section id="view-match" class="view">
+    <div class="score">
+      <div class="side">
+        <span id="label-us" class="label">Us</span>
+        <span id="score-us" class="num">0</span>
+      </div>
+      <div class="mid">
+        <span id="rot-label" class="rot">R1</span>
+        <span id="serve-label" class="serve">They serve</span>
+      </div>
+      <div class="side">
+        <span id="label-them" class="label">Them</span>
+        <span id="score-them" class="num">0</span>
+      </div>
+    </div>
+
+    <p id="result" class="result"></p>
+
+    <div class="buttons">
+      <button id="btn-us" class="bigbtn us">Point to us</button>
+      <button id="btn-them" class="bigbtn them">Point to them</button>
+    </div>
+
+    <div class="minor">
+      <button id="btn-undo" class="smallbtn">Undo</button>
+      <button id="btn-reset" class="smallbtn">Reset</button>
+    </div>
+
+    <div id="match-court" class="court big"></div>
+    <table id="log"></table>
+  </section>
+
+</main>
+
+<script src="config.js"></script>
+<script src="rotation.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
